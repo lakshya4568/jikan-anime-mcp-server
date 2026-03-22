@@ -1,6 +1,6 @@
 {
   "name": "jikan-anime-mcp-server",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "MCP server for the Jikan API - Unofficial MyAnimeList REST API for anime, manga, characters & more",
   "main": "dist/index.js",
   "bin": {

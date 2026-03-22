@@ -107,6 +107,29 @@ Add this entry to your Claude Desktop MCP configuration:
 }
 ```
 
+## NPX Usage (Recommended)
+
+After publishing to npm, users can run this MCP server directly via `npx` (no manual install):
+
+```json
+{
+  "mcpServers": {
+    "jikan-anime": {
+      "command": "npx",
+      "args": ["-y", "jikan-anime-mcp-server"]
+    }
+  }
+}
+```
+
+## Publishing to npm
+
+```bash
+npm run build
+npm login
+npm publish --access public
+```
+
 ## Development
 
 ```bash

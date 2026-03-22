@@ -3,14 +3,29 @@
   "version": "1.0.0",
   "description": "MCP server for the Jikan API - Unofficial MyAnimeList REST API for anime, manga, characters & more",
   "main": "dist/index.js",
+  "bin": {
+    "jikan-anime-mcp-server": "./dist/index.js"
+  },
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE"
+  ],
   "type": "module",
   "scripts": {
     "build": "tsc",
+    "postbuild": "node -e \"const fs=require('fs');const p='dist/index.js';if(fs.existsSync(p)){const c=fs.readFileSync(p,'utf8');if(!c.startsWith('#!/usr/bin/env node')) fs.writeFileSync(p,'#!/usr/bin/env node\\n'+c);}\"",
     "start": "node dist/index.js",
     "dev": "tsx watch src/index.ts",
     "lint": "tsc --noEmit"
   },
-  "keywords": ["mcp", "anime", "manga", "jikan", "myanimelist"],
+  "keywords": [
+    "mcp",
+    "anime",
+    "manga",
+    "jikan",
+    "myanimelist"
+  ],
   "author": "",
   "license": "MIT",
   "dependencies": {

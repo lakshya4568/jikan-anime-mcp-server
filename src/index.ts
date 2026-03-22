@@ -1,3 +1,5 @@
+#!/usr/bin/env node
+
 import { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
 import { StdioServerTransport } from "@modelcontextprotocol/sdk/server/stdio.js";
 import { StreamableHTTPServerTransport } from "@modelcontextprotocol/sdk/server/streamableHttp.js";
@@ -39,7 +41,11 @@ async function runHTTP(): Promise<void> {
 
   // Health check endpoint
   app.get("/health", (_req, res) => {
-    res.json({ status: "ok", server: "jikan-anime-mcp-server", version: "1.0.0" });
+    res.json({
+      status: "ok",
+      server: "jikan-anime-mcp-server",
+      version: "1.0.0",
+    });
   });
 
   app.post("/mcp", async (req, res) => {
@@ -54,7 +60,9 @@ async function runHTTP(): Promise<void> {
 
   const port = parseInt(process.env.PORT ?? "3000", 10);
   app.listen(port, () => {
-    console.error(`Jikan Anime MCP Server running on http://localhost:${port}/mcp`);
+    console.error(
+      `Jikan Anime MCP Server running on http://localhost:${port}/mcp`,
+    );
   });
 }
 
